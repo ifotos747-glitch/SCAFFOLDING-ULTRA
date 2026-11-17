@@ -8,12 +8,12 @@ base { archivesName = 'SCAFFOLDING-ULTRA-1.0-FORGE-1.21' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 minecraft {
     mappings channel: 'official', version: '1.21'
+    reobf = false
     copyIdeResources = true
 }
 repositories { mavenCentral() }
 dependencies { minecraft 'net.minecraftforge:forge:1.21-51.0.33' }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
-tasks.named('jar').configure { finalizedBy 'reobfJar' }
 
 tasks.register('generateModResources', Exec) {
     commandLine 'python3', 'tools/generate_resources.py'
