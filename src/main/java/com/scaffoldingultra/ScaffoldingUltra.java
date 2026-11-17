@@ -47,8 +47,8 @@ public class ScaffoldingUltra {
             .displayItems((params, output) -> PARTS.values().forEach(item -> output.accept(item.get())))
             .build());
 
-    public ScaffoldingUltra(FMLJavaModLoadingContext context) {
-        var bus = context.getModEventBus();
+    public ScaffoldingUltra() {
+        var bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
         TABS.register(bus);
