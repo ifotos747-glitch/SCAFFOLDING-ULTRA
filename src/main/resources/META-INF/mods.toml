@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[51,52)"
+license="All Rights Reserved"
+[[mods]]
+modId="scaffolding_ultra"
+version="1.0.0"
+displayName="SCAFFOLDING ULTRA"
+description='''Industrial steel scaffolding for Minecraft.'''
+[[dependencies.scaffolding_ultra]]
+modId="forge"
+mandatory=true
+versionRange="[51.0.33,52)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.scaffolding_ultra]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.21,1.21.1)"
+ordering="NONE"
+side="BOTH"
