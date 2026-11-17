@@ -53,7 +53,9 @@ for name,(pol,eng,boxes,pattern,count) in parts.items():
  write(f"{a}/blockstates/{name}.json",{"variants":{f"facing={f}":{"model":f"{mod}:block/{name}","y":y} for f,y in [("north",0),("east",90),("south",180),("west",270)]}})
  key={"I":{"item":"minecraft:iron_ingot"}}
  if name in parents:
-  pattern=["BI"]
+  siblings=[n for n in parents if parents[n]==parents[name] and n!="deck_wood"]
+  patterns=[["BI"],["BII"],["BI"," I"],["BI","II"],["B","I","I"]]
+  pattern=patterns[siblings.index(name)] if name!="deck_wood" else ["BI"]
   key={"B":{"item":f"{mod}:{parents[name]}"},"I":{"item":"minecraft:iron_nugget"}}
  if name=="deck_wood":
   pattern=["BW"]
