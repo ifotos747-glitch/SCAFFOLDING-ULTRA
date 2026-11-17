@@ -1,2 +1,2 @@
-# SCAFFOLDING ULTRA 1.0
-Minecraft Java 1.21 / Forge 51.0.33 / Java 21. Build with Gradle 8.8: `gradle build`. GitHub Actions produces the mod JAR. Install Forge 1.21 and copy the JAR into mods. Eight metal scaffold blocks, recipes, drops, creative tab and horizontal rotation. Models and collision boxes are simplified; no structural physics. Ladder is decorative in this release.
+# SCAFFOLDING ULTRA 2.0 — MODULAR SYSTEM
+Minecraft Java 1.21 / Forge 51.0.33 / Java 21. 33 scaffold blocks and two assembly tools. Existing eight block IDs retained. Climbable ladders, automatic orientation matching when attaching to another scaffold (sneak to override), wrench right-click rotates, hammer right-click dismantles and drops block. Models use procedural cuboids and variants within one Minecraft block; wheels are decorative, no movement of full scaffolds. Build via Actions; install only one version of the JAR. Back up worlds before upgrading. Runtime testing pending.
