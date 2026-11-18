@@ -3,7 +3,7 @@ loaderVersion="[51,52)"
 license="All Rights Reserved"
 [[mods]]
 modId="scaffolding_ultra"
-version="2.0.0"
+version="3.0.0"
 displayName="SCAFFOLDING ULTRA"
 description='''Industrial steel scaffolding for Minecraft.'''
 [[dependencies.scaffolding_ultra]]
