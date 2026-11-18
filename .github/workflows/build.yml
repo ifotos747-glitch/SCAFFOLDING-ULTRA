@@ -21,10 +21,10 @@ jobs:
       - name: Verify and package
         run: |
           mkdir -p dist
-          cp build/libs/SCAFFOLDING-ULTRA-2.0-FORGE-1.21-2.0.0.jar dist/SCAFFOLDING-ULTRA-2.0-FORGE-1.21.jar
-          python3 -c "import zipfile; z=zipfile.ZipFile('dist/SCAFFOLDING-ULTRA-2.0-FORGE-1.21.jar'); assert 'META-INF/mods.toml' in z.namelist(); assert 'assets/scaffolding_ultra/models/block/standard.json' in z.namelist(); assert 'data/scaffolding_ultra/recipe/standard.json' in z.namelist(); assert 'com/scaffoldingultra/ScaffoldingUltra.class' in z.namelist(); assert z.testzip() is None"
+          cp build/libs/SCAFFOLDING-ULTRA-3.0-FORGE-1.21-3.0.0.jar dist/SCAFFOLDING-ULTRA-3.0-FORGE-1.21.jar
+          python3 -c "import zipfile; z=zipfile.ZipFile('dist/SCAFFOLDING-ULTRA-3.0-FORGE-1.21.jar'); assert 'META-INF/mods.toml' in z.namelist(); assert 'assets/scaffolding_ultra/models/block/standard.json' in z.namelist(); assert 'data/scaffolding_ultra/recipe/standard.json' in z.namelist(); assert 'com/scaffoldingultra/ScaffoldingUltra.class' in z.namelist(); assert sum(n.startswith('assets/scaffolding_ultra/blockstates/') and n.endswith('.json') for n in z.namelist()) == 70; assert z.testzip() is None"
       - uses: actions/upload-artifact@v4
         with:
-          name: SCAFFOLDING-ULTRA-2.0-FORGE-1.21
+          name: SCAFFOLDING-ULTRA-3.0-FORGE-1.21
           path: dist/*.jar
           if-no-files-found: error
