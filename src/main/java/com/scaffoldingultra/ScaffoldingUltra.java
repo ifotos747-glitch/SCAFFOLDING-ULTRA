@@ -138,6 +138,7 @@ public class ScaffoldingUltra {
             BlockState state = level.getBlockState(pos);
             if (!(state.getBlock() instanceof Part)) return InteractionResult.PASS;
             if (!level.isClientSide) {
+                if (context.getPlayer()==null || !valid(level,context.getPlayer(),pos)) return InteractionResult.PASS;
                 if (rotate) level.setBlock(pos, state.setValue(Part.FACING,state.getValue(Part.FACING).getClockWise()),3);
                 else level.destroyBlock(pos,true,context.getPlayer());
             }
@@ -224,6 +225,8 @@ public class ScaffoldingUltra {
             if(mode==2 && !startId.equals("crane_hook")){p.displayClientMessage(Component.literal("Click a crane hook."),true);return InteractionResult.SUCCESS;}
             if(mode==3 && !startId.equals("mobile_base")){p.displayClientMessage(Component.literal("Click a mobile base."),true);return InteractionResult.SUCCESS;}
             if(mode==3 && blocks.stream().anyMatch(pos -> ForgeRegistries.BLOCKS.getKey(level.getBlockState(pos).getBlock()).getPath().equals("wheel_locked"))){p.displayClientMessage(Component.literal("Release locked wheels first."),true);return InteractionResult.SUCCESS;}
+            if(mode==2 && blocks.stream().anyMatch(pos -> {String id=ForgeRegistries.BLOCKS.getKey(level.getBlockState(pos).getBlock()).getPath(); return id.startsWith("crane_") && !id.equals("crane_hook");})){p.displayClientMessage(Component.literal("Detach cargo from crane mast before lifting."),true);return InteractionResult.SUCCESS;}
+            if(mode==3 && blocks.stream().noneMatch(pos -> {String id=ForgeRegistries.BLOCKS.getKey(level.getBlockState(pos).getBlock()).getPath(); return id.equals("wheel") || id.equals("wheel_heavy");})){p.displayClientMessage(Component.literal("Fit unlocked wheels first."),true);return InteractionResult.SUCCESS;}
             var source=new HashSet<>(blocks);
             var states=new LinkedHashMap<BlockPos,BlockState>();
             for(BlockPos pos:blocks){
